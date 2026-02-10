@@ -15,7 +15,7 @@ export default function About() {
         </Link>
 
         {/* 中間連結 (深灰色字體) */}
-        <div className="flex items-center gap-3 md:gap-8 text-xs md:text-sm font-medium text-neutral-500">
+        <div className="flex items-center gap-3 md:gap-8 text-xs md:text-sm font-medium text-neutral-500">s
           <Link href="/about" className="text-blue-600 font-bold flex items-center gap-2">
              About me
           </Link>
