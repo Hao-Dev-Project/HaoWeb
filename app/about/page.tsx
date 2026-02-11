@@ -6,7 +6,7 @@ export default function About() {
   return (
     <main className="min-h-screen bg-[#fafafa] text-neutral-900 font-sans selection:bg-blue-100 flex flex-col relative overflow-hidden">
       
-      {/* 視覺橋樑：呼應首頁的網格背景 */}
+      
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
       </div>
@@ -17,20 +17,14 @@ export default function About() {
         </Link>
 
         <div className="flex items-center gap-3 md:gap-8 text-xs md:text-sm font-medium text-neutral-500">
-          <Link href="/about" className="text-blue-600 font-bold">
-             About
-          </Link>
-          <Link href="/blog" className="hover:text-black transition-colors">
-             Blog
-          </Link>
-          <Link href="/projects" className="hover:text-black transition-colors">
-             Projects
-          </Link>
+          <Link href="/about" className="text-blue-600 font-bold">About</Link>
+          <Link href="/blog" className="hover:text-black transition-colors">Blog</Link>
+          <Link href="/projects" className="hover:text-black transition-colors">Projects</Link>
         </div>
         <div className="w-6"></div>
       </nav>
 
-      <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up relative z-10">
+      <div className="flex-1 max-w-5xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up relative z-10">
         
         <div className="mb-16">
           <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-neutral-900">
@@ -41,7 +35,8 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+        
+        <div className="grid md:grid-cols-[1.6fr_1fr] gap-12 md:gap-16">
           
           <div className="space-y-8">
             <section>
@@ -51,7 +46,7 @@ export default function About() {
               </h2>
               <div className="text-neutral-600 leading-7 space-y-4">
                 <p>
-                  我是 <span className="font-bold text-black">Hao</span>，目前就讀於 <span className="font-bold text-blue-600 underline underline-offset-4 decoration-blue-200">基隆商工 (KLCIVS)</span>。
+                  我是 <span className="font-bold text-black">Hao</span>，目前就讀於 <span className="font-bold text-blue-600 underline underline-offset-4 decoration-blue-100">基隆商工 (KLCIVS)</span>。
                 </p>
                 <p>
                   我有著雙重身分：白天是一名 <span className="text-neutral-900 font-medium">坐在教室的學生</span>，晚上則是探索著 <span className="text-neutral-900 font-medium">機器人</span> 的選手。
@@ -65,7 +60,6 @@ export default function About() {
                 Contest
               </h2>
               <ul className="space-y-8 border-l-2 border-neutral-200 pl-8 ml-3 py-2">
-                {/* 2026.Feb */}
                 <li className="relative">
                   <span className="absolute -left-[41px] top-1 flex h-5 w-5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -79,28 +73,23 @@ export default function About() {
                   </div>
                 </li>
 
-                {/* 2025.Dec */}
                 <li className="relative">
                   <div className="absolute -left-[41px] top-1.5 w-5 h-5 bg-yellow-500 rounded-full border-4 border-[#fafafa] shadow-sm"></div>
                   <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Dec</span>
                   <h3 className="font-bold text-neutral-900 text-lg">114全國高級中等學校技藝競賽</h3>
                   <div className="mt-2 flex items-center gap-2">
                     <span className="text-sm text-neutral-600">機器人職種</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-yellow-50 text-yellow-700 border border-yellow-200 flex items-center gap-1">優勝五</span>
+                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-yellow-50 text-yellow-700 border border-yellow-200">優勝五</span>
                   </div>
                 </li>
 
-                {/* 2025.Apr */}
                 <li className="relative">
                   <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
                   <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Apr</span>
                   <h3 className="font-bold text-neutral-900 text-base">第65屆 第一分區科學展覽會</h3>
-                  <div className="mt-1">
-                     <span className="px-2 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100">佳作</span>
-                  </div>
+                  <div className="mt-1"><span className="px-2 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100">佳作</span></div>
                 </li>
 
-                {/* 2025.Mar */}
                 <li className="relative">
                   <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
                   <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Mar</span>
@@ -111,7 +100,6 @@ export default function About() {
                   </div>
                 </li>
 
-                {/* 2025.Feb (1) */}
                 <li className="relative">
                   <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
                   <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Feb</span>
@@ -122,7 +110,6 @@ export default function About() {
                   </div>
                 </li>
 
-                {/* 2025.Feb (2) */}
                 <li className="relative">
                   <div className="absolute -left-[39px] top-2 w-4 h-4 bg-slate-400 rounded-full border-2 border-[#fafafa]"></div>
                   <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Feb</span>
@@ -133,7 +120,6 @@ export default function About() {
                   </div>
                 </li>
 
-                {/* 2024.Mar */}
                 <li className="relative">
                   <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
                   <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2024.Mar</span>
@@ -147,19 +133,21 @@ export default function About() {
             </section>
           </div>
 
-          <div className="space-y-10">
+          <div className="flex flex-col gap-10">
+            
             <section className="flex justify-center md:justify-start">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white overflow-hidden shadow-xl bg-white">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-15 group-hover:opacity-30 transition duration-1000"></div>
+                <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white overflow-hidden shadow-lg bg-white">
                   <img src="/me.png" alt="Hao" className="w-full h-full object-cover" /> 
                 </div>
               </div>
             </section>
 
-            <section className="bg-white p-8 rounded-3xl border border-neutral-100 shadow-sm">
-              <h2 className="text-lg font-bold mb-6">正在學習</h2>
-              <div className="flex flex-wrap gap-3">
+            
+            <section className="bg-white p-6 rounded-3xl border border-neutral-100 shadow-sm w-full md:w-fit mx-auto md:mx-0">
+              <h2 className="text-xs font-bold mb-5 text-neutral-400 tracking-widest uppercase">正在學習</h2>
+              <div className="max-w-[220px]"> 
                 <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,c,cpp,androidstudio,kotlin,python,arduino,linux,git&perline=4" alt="My Skills" />
               </div>
             </section> 
