@@ -45,7 +45,7 @@ export default function Home() {
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="hidden md:block size-6" // 手機隱藏，電腦顯示
+              className="hidden md:block size-6" 
             >
               <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
               <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
@@ -53,7 +53,7 @@ export default function Home() {
             <span>Blog</span>
           </Link>
 
-          {/*Projects 連結 */}
+          {/*Projects*/}
           <Link href="/projects" className="hover:text-white transition-colors flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="hidden md:block size-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z" />
@@ -156,7 +156,7 @@ export default function Home() {
         </div>
       </div>
       
-      {/* --- 3. 底部版權 --- */}
+      
       <footer className="w-full text-center py-6 text-neutral-600 text-xs border-t border-white/5">
         <div className="w-24 h-0.5 bg-neutral-700 mx-auto mb-4"></div>
         © 2026 Hao. All Rights Reserved.
