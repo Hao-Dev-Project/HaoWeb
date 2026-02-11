@@ -61,7 +61,7 @@ export default function About() {
               </p>
             </section>
 
-            {/* 經歷/獎項 (放入你的真實資料) */}
+            
             <section>
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
                 <span className="w-2 h-8 bg-neutral-200 rounded-full"></span>
