@@ -65,7 +65,7 @@ export default function Home() {
 
       </nav>
 
-      {/* --- m.ain --- */}
+      {/* --- main --- */}
       <div className="flex-1 flex items-center justify-center w-full px-6">
         <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
           

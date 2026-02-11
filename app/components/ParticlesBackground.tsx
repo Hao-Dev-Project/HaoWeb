@@ -8,12 +8,10 @@ import { loadSlim } from "tsparticles-slim";
 
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    // 載入 slim 版本，體積較小，效能較好
     await loadSlim(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    // 粒子載入完成後的回呼函數 (這邊暫時不需要做什麼)
   }, []);
 
   return (
@@ -21,7 +19,7 @@ const ParticlesBackground = () => {
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
-      className="absolute inset-0 -z-10" // 設定為絕對定位，並放在最底層 (-z-10)
+      className="absolute inset-0 -z-10" 
       options={{
         background: {
           color: {
@@ -30,11 +28,11 @@ const ParticlesBackground = () => {
         },
         fpsLimit: 120,
         interactivity: {
-          detectsOn: "window", // 關鍵：監聽全螢幕滑鼠
+          detectsOn: "window", 
           events: {
             onHover: {
               enable: true,
-              mode: "repulse", // 效果：彈開
+              mode: "repulse", 
             },
             resize: true,
           },
@@ -69,7 +67,7 @@ const ParticlesBackground = () => {
               default: "bounce",
             },
             random: false,
-            speed: 1, // 速度
+            speed: 1, 
             straight: false,
           },
           number: {
@@ -77,7 +75,7 @@ const ParticlesBackground = () => {
               enable: true,
               area: 800,
             },
-            value: 80, // 稍微增加一點數量
+            value: 80, 
           },
           opacity: {
             value: 0.3,

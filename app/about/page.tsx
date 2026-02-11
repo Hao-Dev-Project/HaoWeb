@@ -30,7 +30,7 @@ export default function About() {
         <div className="w-6"></div>
       </nav>
 
-      {/* --- 2. m.ain --- */}
+      {/* --- 2. main --- */}
       <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up">
         
         {/* title */}
