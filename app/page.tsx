@@ -16,25 +16,23 @@ export default function Home() {
   };
 
   return (
-    // ★ 1. 修改 selection 顏色為藍色
-    <main className="min-h-screen bg-[#1c1c1c] text-white font-sans selection:bg-blue-500/30 flex flex-col justify-between overflow-hidden">
+       <main className="min-h-screen text-white font-sans selection:bg-blue-500/30 flex flex-col justify-between overflow-hidden">
       
-      {/* --- 1. 頂部導覽列 (Navbar) --- */}
+      
       <nav className="relative w-full max-w-7xl mx-auto p-6 md:p-8 flex items-center h-20">
         
         
-        {/* 正中間的四個連結 */}
+       
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-4 text-xs md:text-sm font-medium text-neutral-400">
-                    {/* 1. About 連結 */}
+            {/* about   */}
           <Link href="/about" className="hover:text-white transition-colors flex items-center gap-2">
-            {/* 加了 hidden md:block -> 手機隱藏圖示 */}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="hidden md:block size-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="hidden md:block size-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
-            <span>About</span> {/* 建議把 About me 改成 About，更短更俐落 */}
+            <span>About</span> 
           </Link>
 
-          {/* 2. Blog 連結 */}
+          {/* blog */}
           
           <Link href="/blog" className="hover:text-white transition-colors flex items-center gap-2">
             <svg 
@@ -55,7 +53,7 @@ export default function Home() {
             <span>Blog</span>
           </Link>
 
-          {/* 3. Projects 連結 */}
+          {/*Projects 連結 */}
           <Link href="/projects" className="hover:text-white transition-colors flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="hidden md:block size-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z" />
@@ -63,25 +61,22 @@ export default function Home() {
             <span>Projects</span>
           </Link>
         </div>
-
-        {/* 右側留空 */}
         <div className="ml-auto"></div>
 
       </nav>
 
-      {/* --- 2. 中間主要內容 --- */}
+      {/* --- m.ain --- */}
       <div className="flex-1 flex items-center justify-center w-full px-6">
         <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
           
-          {/* 左邊：文字區 */}
+          
           <div className="flex-1 space-y-6 text-center md:text-left">
             
             <div className="text-2xl md:text-3xl font-mono text-neutral-300">
-              {/* ★ 2. Developer 改成藍色 (text-blue-400) */}
-              HI! I'm a <span className="text-blue-400 font-bold">Developer</span>
+             HI! I'm a <span className="text-blue-400 font-bold">Developer</span>
             </div>
 
-            {/* 超大標題 */}
+            {/* title */}
             <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white mb-2">
               <Typewriter
                 options={{
@@ -94,7 +89,7 @@ export default function Home() {
               />
             </h1>
 
-            {/* 文字介紹 */}
+            
             <div className="text-neutral-400 text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
               <p>
                 A student from <span className="text-blue-400 font-bold">KLCIVS</span>.
@@ -104,11 +99,11 @@ export default function Home() {
                </p>
             </div>
 
-            {/* 圓形社群按鈕 (全部改成藍色系) */}
+            {/* button */}
             <div className="flex items-center justify-center md:justify-start gap-4 pt-4">
               
               {/* Blog Icon */}
-              {/* ★ 3. 邊框、文字、Hover 背景都改成 Blue */}
+              
               <Link href="/blog" className="w-12 h-12 rounded-full border border-blue-500/50 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
               </Link>
@@ -124,16 +119,15 @@ export default function Home() {
                 onClick={handleCopy}
                 className="relative w-12 h-12 rounded-full border border-blue-500/50 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-300 group shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]"
               >
-                {/* 狀態切換 */}
+                {/* status exchange */}
                 {isCopied ? (
                   <svg className="w-6 h-6 animate-scale-in" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                 ) : (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 )}
 
-                {/* Copied 提示字 */}
-                {/* ★ 4. 背景改為藍色 (bg-blue-500) */}
-                {isCopied && (
+                {/* Copied words */}
+                  {isCopied && (
                   <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded shadow-lg animate-fade-in-up whitespace-nowrap">
                     Copied!
                   </span>
@@ -145,11 +139,10 @@ export default function Home() {
           
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="relative w-72 h-72 md:w-96 md:h-96">
-                {/* 裝飾背景圓 */}
+               
                 <div className="absolute inset-0 bg-blue-900/30 rounded-full blur-3xl opacity-50 animate-pulse"></div>
                 
-                {/* 照片圓形裁切 */}
-                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#2d3748] shadow-2xl">
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#2d3748] shadow-2xl">
                    <Image 
                      src="/me.png" 
                      alt="Hao Avatar" 

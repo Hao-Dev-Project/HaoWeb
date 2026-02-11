@@ -6,15 +6,15 @@ export default function About() {
   return (
     <main className="min-h-screen bg-white text-neutral-900 font-sans selection:bg-blue-100 flex flex-col">
       
-      {/* --- 1. 導覽列 (白色簡約版) --- */}
+      {/* --- 1. map --- */}
       <nav className="w-full max-w-7xl mx-auto p-6 md:p-8 flex items-center justify-between h-20">
         
-        {/* 左上角 Logo (回到首頁) */}
+        {/*  Logo to hobby */}
         <Link href="/" className="text-xl font-bold tracking-tighter hover:text-blue-600 transition-colors">
           Hao.
         </Link>
 
-        {/* 中間連結 (深灰色字體) */}
+        {/* ab bl pj */}
         <div className="flex items-center gap-3 md:gap-8 text-xs md:text-sm font-medium text-neutral-500">
           <Link href="/about" className="text-blue-600 font-bold flex items-center gap-2">
              About
@@ -27,14 +27,13 @@ export default function About() {
           </Link>
         </div>
 
-        {/* 右側裝飾 (可以放個小 icon 或留空) */}
         <div className="w-6"></div>
       </nav>
 
-      {/* --- 2. 主要內容 --- */}
+      {/* --- 2. m.ain --- */}
       <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up">
         
-        {/* 標題區 */}
+        {/* title */}
         <div className="mb-16">
           <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-neutral-900">
             About <span className="text-blue-600">Me</span>.
@@ -44,10 +43,9 @@ export default function About() {
           </p>
         </div>
 
-        {/* 兩欄佈局：左邊介紹，右邊技能 */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           
-          {/* 左欄：詳細介紹 */}
+          
           <div className="space-y-8">
             <section>
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -71,8 +69,7 @@ export default function About() {
               </h2>
               <ul className="space-y-8 border-l-2 border-neutral-200 pl-8 ml-3 py-2">
 
-  {/* 2026 Feb - 參賽中 (紅色呼吸燈特效) */}
-  <li className="relative">
+    <li className="relative">
     <span className="absolute -left-[41px] top-1 flex h-5 w-5">
       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
       <span className="relative inline-flex rounded-full h-5 w-5 bg-red-500 border-2 border-white"></span>
@@ -89,7 +86,7 @@ export default function About() {
     </div>
   </li>
 
-  {/* 2025 Dec - 優勝五 (金色榮耀) */}
+  
   <li className="relative">
     <div className="absolute -left-[41px] top-1.5 w-5 h-5 bg-yellow-500 rounded-full border-4 border-white shadow-md"></div>
     <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Dec</span>
@@ -105,7 +102,7 @@ export default function About() {
     </div>
   </li>
 
-  {/* 2025 Apr - 科展 佳作 */}
+  
   <li className="relative">
     <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-white"></div>
     <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Apr</span>
@@ -119,7 +116,7 @@ export default function About() {
     </div>
   </li>
 
-  {/* 2025 Mar - 自主機器人 佳作 (6th) */}
+  
   <li className="relative">
     <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-white"></div>
     <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Mar</span>
@@ -134,7 +131,7 @@ export default function About() {
     </div>
   </li>
 
-  {/* 2025 Feb - 專題實作 佳作 */}
+  
   <li className="relative">
     <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-white"></div>
     <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Feb</span>
@@ -149,7 +146,7 @@ export default function About() {
     </div>
   </li>
 
-  {/* 2025 Feb - 發明展 銀牌 (銀色) */}
+ 
   <li className="relative">
     <div className="absolute -left-[39px] top-2 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></div>
     <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Feb</span>
@@ -164,7 +161,7 @@ export default function About() {
     </div>
   </li>
 
-  {/* 2024 Mar - 機器人 佳作 (8th) */}
+  
   <li className="relative">
     <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-white"></div>
     <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2024.Mar</span>
@@ -183,15 +180,14 @@ export default function About() {
             </section>
           </div>
 
-          {/* 右欄：技能與照片 */}
+          
           <div className="space-y-10">
             
-            {/* 技能牆 (使用 Skill Icons) */}
+            {/* skill icon */}
             <section className="bg-neutral-50 p-6 rounded-2xl border border-neutral-100">
               <h2 className="text-lg font-bold mb-6">正在學習</h2>
               <div className="flex flex-wrap gap-3">
-                {/* 這裡直接引用 Skill Icons 圖片 */}
-              <a href="https://skillicons.dev">
+                    <a href="https://skillicons.dev">
                 <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,c,cpp,androidstudio,kotlin,python,arduino,linux,git&perline=6" alt="My Skills" />
               </a>
               </div>

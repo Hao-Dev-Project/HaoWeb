@@ -17,35 +17,29 @@ body {
     )
     rgb(var(--background-start-rgb));
   min-height: 100vh;
-  /* ★ 關鍵魔法：背景網格線 */
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px; /* 格子大小 */
+  background-size: 50px 50px;
 }
 
-/* 讓文字更清晰 */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  /* src/app/globals.css 最下方加入 */
-
-/* 定義一個緩慢浮動+呼吸的動畫 */
+ 
 @keyframes float-pulse {
   0%, 100% {
     transform: translate(-50%, 0) scale(1);
     opacity: 0.15;
   }
   50% {
-    /* 往上浮動一點，變大一點，變亮一點 */
-    transform: translate(-50%, -30px) scale(1.2);
+      transform: translate(-50%, -30px) scale(1.2);
     opacity: 0.25;
   }
 }
 
-/* 建立一個 class 來應用這個動畫 */
 .animate-float-pulse {
-  animation: float-pulse 12s ease-in-out infinite; /* 12秒循環一次，非常緩慢 */
+  animation: float-pulse 12s ease-in-out infinite; 
 }
 }
