@@ -1,154 +1,201 @@
-// app/about/page.tsx
-import Link from "next/link";
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-[#fafafa] text-neutral-900 font-sans selection:bg-blue-100 flex flex-col relative overflow-hidden">
+    <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500/30 flex flex-col relative overflow-hidden">
       
-      
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
+      {/* ========================================= */}
+      {/* 1. 核心靈魂：漂浮的巨型環境光球 (Ambient Blobs) */}
+      {/* ========================================= */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-purple-700/30 rounded-full mix-blend-screen filter blur-[120px] opacity-80 animate-pulse"></div>
+        <div className="absolute top-[20%] -right-[10%] w-[35rem] h-[35rem] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[120px] opacity-70"></div>
+        <div className="absolute -bottom-[10%] left-[15%] w-[30rem] h-[30rem] bg-cyan-500/20 rounded-full mix-blend-screen filter blur-[100px] opacity-60"></div>
       </div>
 
-      <nav className="w-full max-w-7xl mx-auto p-6 md:p-8 flex items-center justify-between h-20 relative z-10">
-        <Link href="/" className="text-xl font-bold tracking-tighter hover:text-blue-600 transition-colors">
-          Hao.
-        </Link>
-
-        <div className="flex items-center gap-3 md:gap-8 text-xs md:text-sm font-medium text-neutral-500">
-          <Link href="/about" className="text-blue-600 font-bold">About</Link>
-          <Link href="/blog" className="hover:text-black transition-colors">Blog</Link>
-          <Link href="/projects" className="hover:text-black transition-colors">Projects</Link>
-        </div>
-        <div className="w-6"></div>
-      </nav>
+      <div className="relative z-50">
+        <Navbar isDark={true} />
+      </div>
 
       <div className="flex-1 max-w-5xl mx-auto w-full px-6 py-12 md:py-20 animate-fade-in-up relative z-10">
         
-        <div className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-neutral-900">
-            About <span className="text-blue-600">Me</span>.
+        <div className="mb-16 pl-2">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
+            About Me.
           </h1>
-          <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl">
-            這裡是我分享技術與生活的地方。我喜歡將複雜的程式碼轉化為簡約優雅的介面。
+          <p className="text-lg text-neutral-300 leading-relaxed max-w-2xl font-light">
+            這裡是我分享技術與生活的地方。我喜歡將複雜的程式碼轉化為簡約優雅的介面，熱愛嘗試各項新技術。
           </p>
         </div>
 
-        
-        <div className="grid md:grid-cols-[1.6fr_1fr] gap-12 md:gap-16">
+        <div className="grid md:grid-cols-[1.6fr_1fr] gap-8 md:gap-12">
           
           <div className="space-y-8">
-            <section>
-              <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="w-2 h-8 bg-blue-600 rounded-full"></span>
+            {/* ========================================= */}
+            {/* 2. 毛玻璃卡片 - 自我介紹 */}
+            {/* ========================================= */}
+            <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              <h2 className="text-xl font-bold mb-6 flex items-center gap-3 text-white">
+                <span className="w-1.5 h-6 bg-gradient-to-b from-blue-400 to-purple-500 rounded-full"></span>
                 Who am I?
               </h2>
-              <div className="text-neutral-600 leading-7 space-y-4">
+              <div className="text-neutral-300 leading-relaxed space-y-4 font-light">
                 <p>
-                  我是 <span className="font-bold text-black">Hao</span>，目前就讀於 <span className="font-bold text-blue-600 underline underline-offset-4 decoration-blue-100">基隆商工 (KLCIVS)</span>。
+                  我是 <span className="font-medium text-white">Hao</span>，目前就讀於 <span className="font-medium text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.5)]">基隆商工 (KLCIVS)</span>。
                 </p>
                 <p>
-                  我有著雙重身分：白天是一名 <span className="text-neutral-900 font-medium">坐在教室的學生</span>，晚上則是探索著 <span className="text-neutral-900 font-medium">機器人</span> 的選手。
+                  我有著雙重身分：白天是一名坐在教室的學生，晚上則是準備著各項競賽及學習新知的選手。
                 </p>
               </div>
             </section>
 
-            <section>
-              <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="w-2 h-8 bg-neutral-200 rounded-full"></span>
+            {/* ========================================= */}
+            {/* 3. 毛玻璃卡片 - 完整比賽經歷 (絕不偷工減料) */}
+            {/* ========================================= */}
+            <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] relative overflow-hidden">
+              <h2 className="text-xl font-bold mb-8 flex items-center gap-3 text-white">
+                <span className="w-1.5 h-6 bg-gradient-to-b from-purple-400 to-cyan-400 rounded-full"></span>
                 Contest
               </h2>
-              <ul className="space-y-8 border-l-2 border-neutral-200 pl-8 ml-3 py-2">
-                <li className="relative">
-                  <span className="absolute -left-[41px] top-1 flex h-5 w-5">
+              
+              <ul className="space-y-8 border-l border-white/20 pl-6 ml-2 py-2">
+                
+                {/* 經歷 1 */}
+                <li className="relative group">
+                  <span className="absolute -left-[29px] top-1 flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-red-500 border-2 border-[#fafafa]"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></span>
                   </span>
-                  <span className="text-xs font-bold text-red-500 tracking-wider mb-1 block">2026.Feb</span>
-                  <h3 className="font-bold text-neutral-900 text-lg">115電機電子群-全國專題實作及創意競賽</h3>
-                  <div className="mt-2 flex items-center gap-2">
-                    <span className="text-sm text-neutral-600">複賽 專題組</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-600 border border-red-200">參賽中</span>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2026.Feb</span>
+                  <h3 className="font-medium text-white text-lg mb-2">115電機電子群-全國專題實作及創意競賽</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-neutral-400">複賽 專題組</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-red-300 backdrop-blur-md">參賽中</span>
                   </div>
                 </li>
 
-                <li className="relative">
-                  <div className="absolute -left-[41px] top-1.5 w-5 h-5 bg-yellow-500 rounded-full border-4 border-[#fafafa] shadow-sm"></div>
-                  <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Dec</span>
-                  <h3 className="font-bold text-neutral-900 text-lg">114全國高級中等學校技藝競賽</h3>
-                  <div className="mt-2 flex items-center gap-2">
-                    <span className="text-sm text-neutral-600">機器人職種</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-yellow-50 text-yellow-700 border border-yellow-200">優勝五</span>
+                {/* 經歷 2 */}
+                <li className="relative group">
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-yellow-400 rounded-full shadow-[0_0_10px_rgba(250,204,21,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2025.Dec</span>
+                  <h3 className="font-medium text-white text-base mb-2">114全國高級中等學校技藝競賽</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-neutral-400">機器人職種</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-yellow-300 backdrop-blur-md">優勝五</span>
                   </div>
                 </li>
 
-                <li className="relative">
-                  <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
-                  <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Apr</span>
-                  <h3 className="font-bold text-neutral-900 text-base">第65屆 第一分區科學展覽會</h3>
-                  <div className="mt-1"><span className="px-2 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100">佳作</span></div>
+                {/* 經歷 3 */}
+                <li className="relative group">
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2025.Apr</span>
+                  <h3 className="font-medium text-white text-base mb-2">第65屆 第一分區科學展覽會</h3>
+                  <div><span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-blue-300 backdrop-blur-md">佳作</span></div>
                 </li>
 
-                <li className="relative">
-                  <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
-                  <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Mar</span>
-                  <h3 className="font-bold text-neutral-900 text-base">55屆 分區技能競賽</h3>
-                  <div className="mt-1 flex items-center gap-2">
-                    <span className="text-sm text-neutral-600">自主機器人職種</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100">佳作 (6th)</span>
+                {/* 經歷 4 */}
+                <li className="relative group">
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2025.Mar</span>
+                  <h3 className="font-medium text-white text-base mb-2">55屆 分區技能競賽</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-neutral-400">自主機器人職種</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-blue-300 backdrop-blur-md">佳作 (6th)</span>
                   </div>
                 </li>
 
-                <li className="relative">
-                  <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
-                  <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Feb</span>
-                  <h3 className="font-bold text-neutral-900 text-base">114電機電子群-全國專題實作及創意競賽</h3>
-                  <div className="mt-1 flex items-center gap-2">
-                    <span className="text-sm text-neutral-600">複賽 專題組</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100">佳作</span>
+                {/* 經歷 5 */}
+                <li className="relative group">
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2025.Feb</span>
+                  <h3 className="font-medium text-white text-base mb-2">114電機電子群-全國專題實作及創意競賽</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-neutral-400">複賽 專題組</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-blue-300 backdrop-blur-md">佳作</span>
                   </div>
                 </li>
 
-                <li className="relative">
-                  <div className="absolute -left-[39px] top-2 w-4 h-4 bg-slate-400 rounded-full border-2 border-[#fafafa]"></div>
-                  <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2025.Feb</span>
-                  <h3 className="font-bold text-neutral-900 text-base">IEYI 世界青少年發明展台灣選拔賽</h3>
-                  <div className="mt-1 flex items-center gap-2">
-                    <span className="text-sm text-neutral-600">農糧技術類</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300">銀牌</span>
+                {/* 經歷 6 */}
+                <li className="relative group">
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-slate-300 rounded-full shadow-[0_0_10px_rgba(203,213,225,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2025.Feb</span>
+                  <h3 className="font-medium text-white text-base mb-2">IEYI 世界青少年發明展台灣選拔賽</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-neutral-400">農糧技術類</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-slate-300 backdrop-blur-md">銀牌</span>
                   </div>
                 </li>
 
-                <li className="relative">
-                  <div className="absolute -left-[39px] top-2 w-4 h-4 bg-neutral-300 rounded-full border-2 border-[#fafafa]"></div>
-                  <span className="text-xs font-bold text-neutral-400 tracking-wider mb-1 block">2024.Mar</span>
-                  <h3 className="font-bold text-neutral-900 text-base">54屆 分區技能競賽</h3>
-                  <div className="mt-1 flex items-center gap-2">
-                    <span className="text-sm text-neutral-600">機器人職種</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100">佳作 (8th)</span>
+                {/* 經歷 7 */}
+                <li className="relative group">
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2024.Mar</span>
+                  <h3 className="font-medium text-white text-base mb-2">54屆 分區技能競賽</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-neutral-400">機器人職種</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-blue-300 backdrop-blur-md">佳作 (8th)</span>
                   </div>
                 </li>
+
               </ul>
             </section>
           </div>
 
-          <div className="flex flex-col gap-10">
-            
-            <section className="flex justify-center md:justify-start">
+          <div className="flex flex-col gap-8">
+            {/* ========================================= */}
+            {/* 4. 大頭照：懸浮在玻璃卡片中 */}
+            {/* ========================================= */}
+            <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 flex justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-15 group-hover:opacity-30 transition duration-1000"></div>
-                <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white overflow-hidden shadow-lg bg-white">
-                  <img src="/me.png" alt="Hao" className="w-full h-full object-cover" /> 
+                <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                <div className="relative w-40 h-40 rounded-full ring-2 ring-white/20 overflow-hidden bg-white/5 backdrop-blur-md shadow-2xl">
+                  <img src="/me.png" alt="Hao" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" /> 
                 </div>
               </div>
             </section>
 
-            
-            <section className="bg-white p-6 rounded-3xl border border-neutral-100 shadow-sm w-full md:w-fit mx-auto md:mx-0">
-              <h2 className="text-xs font-bold mb-5 text-neutral-400 tracking-widest uppercase">正在學習</h2>
-              <div className="max-w-[220px]"> 
-                <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,c,cpp,androidstudio,kotlin,python,arduino,linux,git&perline=4" alt="My Skills" />
+            {/* ========================================= */}
+            {/* 5. 核心技術卡片：3 個 Icon 完美居中 */}
+            {/* ========================================= */}
+            <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] transition-all hover:bg-white/[0.05] w-full">
+              <h2 className="text-xs font-mono mb-8 text-white/50 tracking-widest uppercase text-center">
+                正在學習...
+              </h2>
+              
+              <div className="flex justify-center items-center gap-8 md:gap-10 transition-all"> 
+                
+                {/* Next.js */}
+                <div className="group/icon relative flex flex-col items-center">
+                  <img 
+                    src="https://skillicons.dev/icons?i=nextjs&theme=dark" 
+                    alt="Next.js" 
+                    className="w-14 h-14 md:w-16 md:h-16 transition-all duration-500 group-hover/icon:scale-110 group-hover/icon:drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" 
+                  />
+                  <span className="mt-3 text-[10px] font-mono text-white/30 opacity-0 group-hover/icon:opacity-100 transition-opacity">Web</span>
+                </div>
+
+                {/* C++ */}
+                <div className="group/icon relative flex flex-col items-center">
+                  <img 
+                    src="https://skillicons.dev/icons?i=cpp&theme=dark" 
+                    alt="C++" 
+                    className="w-14 h-14 md:w-16 md:h-16 transition-all duration-500 group-hover/icon:scale-110 group-hover/icon:drop-shadow-[0_0_15px_rgba(0,115,190,0.5)]" 
+                  />
+                  <span className="mt-3 text-[10px] font-mono text-white/30 opacity-0 group-hover/icon:opacity-100 transition-opacity">Control</span>
+                </div>
+
+                {/* Android Studio */}
+                <div className="group/icon relative flex flex-col items-center">
+                  <img 
+                    src="https://skillicons.dev/icons?i=androidstudio&theme=dark" 
+                    alt="Android Studio" 
+                    className="w-14 h-14 md:w-16 md:h-16 transition-all duration-500 group-hover/icon:scale-110 group-hover/icon:drop-shadow-[0_0_15px_rgba(61,220,132,0.4)]" 
+                  />
+                  <span className="mt-3 text-[10px] font-mono text-white/30 opacity-0 group-hover/icon:opacity-100 transition-opacity">Mobile</span>
+                </div>
+
               </div>
             </section> 
           </div>
@@ -156,8 +203,10 @@ export default function About() {
         </div>
       </div>
 
-      <footer className="w-full text-center py-8 text-neutral-400 text-xs mt-auto relative z-10">
-        © 2026 Hao. All Rights Reserved.
+      <footer className="w-full py-8 mt-auto relative z-10 border-t border-white/10">
+        <div className="max-w-5xl mx-auto px-6 text-white/40 text-xs font-mono text-center">
+          © 2026 Hao. All Rights Reserved.
+        </div>
       </footer>
     </main>
   );

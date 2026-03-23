@@ -1,4 +1,4 @@
-// app/components/ParticlesBackground.tsx
+
 "use client";
 
 import { useCallback } from "react";
