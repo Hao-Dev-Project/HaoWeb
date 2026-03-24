@@ -4,9 +4,6 @@ export default function About() {
   return (
     <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500/30 flex flex-col relative overflow-hidden">
       
-      {/* ========================================= */}
-      {/* 1. 核心靈魂：漂浮的巨型環境光球 (Ambient Blobs) */}
-      {/* ========================================= */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-purple-700/30 rounded-full mix-blend-screen filter blur-[120px] opacity-80 animate-pulse"></div>
         <div className="absolute top-[20%] -right-[10%] w-[35rem] h-[35rem] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[120px] opacity-70"></div>
@@ -31,9 +28,7 @@ export default function About() {
         <div className="grid md:grid-cols-[1.6fr_1fr] gap-8 md:gap-12">
           
           <div className="space-y-8">
-            {/* ========================================= */}
-            {/* 2. 毛玻璃卡片 - 自我介紹 */}
-            {/* ========================================= */}
+
             <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
               
@@ -51,9 +46,7 @@ export default function About() {
               </div>
             </section>
 
-            {/* ========================================= */}
-            {/* 3. 毛玻璃卡片 - 完整比賽經歷 (絕不偷工減料) */}
-            {/* ========================================= */}
+
             <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] relative overflow-hidden">
               <h2 className="text-xl font-bold mb-8 flex items-center gap-3 text-white">
                 <span className="w-1.5 h-6 bg-gradient-to-b from-purple-400 to-cyan-400 rounded-full"></span>
@@ -64,15 +57,12 @@ export default function About() {
                 
                 {/* 經歷 1 */}
                 <li className="relative group">
-                  <span className="absolute -left-[29px] top-1 flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></span>
-                  </span>
-                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2026.Feb</span>
-                  <h3 className="font-medium text-white text-lg mb-2">115電機電子群-全國專題實作及創意競賽</h3>
+                  <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.6)]"></div>
+                  <span className="text-xs font-mono text-white/50 tracking-wider mb-2 block">2025.Feb</span>
+                  <h3 className="font-medium text-white text-base mb-2">115電機電子群-全國專題實作及創意競賽</h3>
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-neutral-400">複賽 專題組</span>
-                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-red-300 backdrop-blur-md">參賽中</span>
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-white/10 border border-white/5 text-blue-300 backdrop-blur-md">佳作</span>
                   </div>
                 </li>
 
@@ -144,9 +134,7 @@ export default function About() {
           </div>
 
           <div className="flex flex-col gap-8">
-            {/* ========================================= */}
-            {/* 4. 大頭照：懸浮在玻璃卡片中 */}
-            {/* ========================================= */}
+
             <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 flex justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
               <div className="relative group">
                 <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
@@ -156,9 +144,7 @@ export default function About() {
               </div>
             </section>
 
-            {/* ========================================= */}
-            {/* 5. 核心技術卡片：3 個 Icon 完美居中 */}
-            {/* ========================================= */}
+
             <section className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] transition-all hover:bg-white/[0.05] w-full">
               <h2 className="text-xs font-mono mb-8 text-white/50 tracking-widest uppercase text-center">
                 正在學習...
