@@ -170,13 +170,13 @@ export default async function BlogPost({
                           {/* Left branch: Yes */}
                           <div className="flex-1 flex flex-col items-center border-r border-dashed border-cream-300 pr-4">
                             <div className="text-[10px] text-red-600 font-bold mb-3 tracking-wider">True</div>
-                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px]">
+                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px] break-all">
                               LINX Write Port: Low
                             </div>
                             <svg className="w-5 h-5 text-amber-accent my-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                             </svg>
-                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px]">
+                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px] break-all">
                               控制繼電器馬達煞車
                             </div>
                           </div>
@@ -184,13 +184,13 @@ export default async function BlogPost({
                           {/* Right branch: No */}
                           <div className="flex-1 flex flex-col items-center pl-4">
                             <div className="text-[10px] text-green-600 font-bold mb-3 tracking-wider">False</div>
-                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px]">
+                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px] break-all">
                               執行 autoCorrectHeading.vi
                             </div>
                             <svg className="w-5 h-5 text-amber-accent my-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                             </svg>
-                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px]">
+                            <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px] break-all">
                               輸出 LINX PWM 調整左右輪速
                             </div>
                           </div>
