@@ -191,7 +191,7 @@ export default async function BlogPost({
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                             </svg>
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[240px] break-all">
-                              輸出 LINX PWM 調整左右輪速
+                              輸出 PWM 調整左右輪速
                             </div>
                           </div>
                         </div>
