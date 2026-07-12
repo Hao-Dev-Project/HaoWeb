@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,6 +8,27 @@ import ProgressBar from "@/components/ProgressBar";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-light.css";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const postId = parseInt(id);
+  const post = postsData[postId];
+  
+  if (!post) {
+    return {
+      title: "找不到文章 — Hao 個人網頁",
+    };
+  }
+
+  return {
+    title: `${post.title} — Hao 個人網頁`,
+    description: post.description || "Hao 的技術與比賽學習筆記。",
+  };
+}
 
 export default async function BlogPost({
   params,

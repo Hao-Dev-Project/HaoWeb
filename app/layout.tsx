@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hao — Portfolio",
-  description: "A student from KLCIVS. 熱愛開發新技術。",
+  title: "Hao 個人網頁",
+  description: "Hao 的個人作品集與技術部落格。熱愛機器人、邊緣運算與機電整合開發。",
 };
 
 export default function RootLayout({
