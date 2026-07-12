@@ -1,112 +1,296 @@
-'use client';
+"use client";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; 
-import Typewriter from 'typewriter-effect';
+import Image from "next/image";
 
-export default function Home() {
-  const [isCopied, setIsCopied] = useState(false);
-  
-  const handleCopy = () => {
-    const email = "haodev.web@gmail.com";
-    navigator.clipboard.writeText(email);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
-  };
+// Custom typewriter component to prevent ghost characters and layout shifts
+function Typewriter({ onCycleComplete }: { onCycleComplete: () => void }) {
+  const words = ["Hao", "YunTech"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(300); // Start with a brief delay before typing
+
+  useEffect(() => {
+    const fullWord = words[currentWordIndex];
+    
+    const handleType = () => {
+      if (!isDeleting) {
+        // Typing
+        const nextText = fullWord.substring(0, currentText.length + 1);
+        setCurrentText(nextText);
+        setTypingSpeed(100); // Regular typing speed
+
+        if (nextText === fullWord) {
+          setTypingSpeed(1500); // Pause on complete word
+          setIsDeleting(true);
+        }
+      } else {
+        // Deleting
+        const nextText = fullWord.substring(0, currentText.length - 1);
+        setCurrentText(nextText);
+        setTypingSpeed(50); // Faster delete speed
+
+        if (nextText === "") {
+          setIsDeleting(false);
+          // If we finished deleting the last word, reset the entire component cycle
+          if (currentWordIndex === words.length - 1) {
+            onCycleComplete();
+          } else {
+            setCurrentWordIndex((prev) => (prev + 1) % words.length);
+            setTypingSpeed(300); // Brief pause before typing next word
+          }
+        }
+      }
+    };
+
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIndex, typingSpeed, onCycleComplete]);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-blue-500/30 flex flex-col justify-between relative overflow-hidden">
-      
-     
+    <span 
+      className="inline-flex items-center" 
+      style={{ transform: "translate3d(0,0,0)", willChange: "contents" }}
+    >
+      {currentText}
+      <span className="ml-1 text-amber-accent font-light animate-[pulse_1s_infinite] select-none">|</span>
+    </span>
+  );
+}
+
+export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+  const [cycleKey, setCycleKey] = useState(0);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  return (
+    <main className="min-h-screen bg-cream-100 text-warm-text font-sans flex flex-col relative overflow-hidden">
+      {/* Subtle warm decorative blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-purple-700/20 rounded-full mix-blend-screen filter blur-[120px] opacity-80 animate-pulse"></div>
-        <div className="absolute top-[20%] -right-[10%] w-[35rem] h-[35rem] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[120px] opacity-70"></div>
+        <div className="absolute -top-[15%] -right-[10%] w-[35rem] h-[35rem] bg-amber-accent/10 rounded-full filter blur-[100px]"></div>
+        <div className="absolute bottom-[20%] -left-[10%] w-[30rem] h-[30rem] bg-terracotta/8 rounded-full filter blur-[100px]"></div>
       </div>
 
-      <div className="relative z-50">
-        <Navbar isDark={true} />
-      </div>
+      <Navbar />
 
-      <div className="flex-1 flex items-center justify-center w-full px-6 relative z-10 animate-fade-in-up">
-        <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-20">
-          
-          
+      {/* Hero section taking full screen height initially */}
+      <div className="min-h-[calc(100vh-5rem)] flex flex-col items-center justify-between w-full px-6 relative z-10 py-12 md:py-16">
+        {/* Top spacer for flex balance */}
+        <div className="h-0"></div>
+
+        <div className="max-w-5xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-20 my-auto">
+          {/* Text Content */}
           <div className="flex-1 space-y-6 text-center md:text-left">
-            <div className="text-xl md:text-2xl font-mono text-white/50 tracking-widest uppercase flex items-center justify-center md:justify-start gap-3">
-            
-              
-            </div>
-
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-2 py-1">
-              <Typewriter options={{ strings: ['Hao.'], autoStart: true, loop: true, delay: 100, deleteSpeed: 50 }} />
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-black tracking-tight text-warm-text mb-2 py-1 min-h-[1.1em] flex items-center justify-center md:justify-start">
+              {isMounted ? (
+                <Typewriter 
+                  key={cycleKey} 
+                  onCycleComplete={() => setCycleKey((prev) => prev + 1)} 
+                />
+              ) : (
+                "Hao"
+              )}
             </h1>
-            
-            <div className="text-neutral-300 text-lg leading-relaxed max-w-lg mx-auto md:mx-0 font-light space-y-3">
-              <p>
-                A student from <span className="text-blue-400 font-bold">KLCIVS</span>.
-              </p>
-              <p className="text-neutral-400">
-                熱愛開發新技術。
-              </p>
-            </div>
 
-            
-            <div className="flex items-center justify-center md:justify-start gap-5 pt-6">
-              
-              
-              <Link href="/blog" className="w-12 h-12 rounded-full border border-blue-500/50 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-              </Link>
 
-              
-              <a href="https://github.com/Hao-Dev-Project" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-blue-500/50 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-
-              
-              <button 
-                onClick={handleCopy}
-                className="relative w-12 h-12 rounded-full border border-blue-500/50 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-300 group shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]"
-              >
-                {isCopied ? (
-                  <svg className="w-6 h-6 animate-scale-in text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                ) : (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                )}
-                {isCopied && (
-                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-xl animate-fade-in-up whitespace-nowrap">
-                    Copied!
-                  </span>
-                )}
-              </button>
-            </div>
           </div>
 
-          
+          {/* Avatar */}
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="relative group">
-              
-              <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur-2xl opacity-60 group-hover:opacity-100 transition duration-700"></div>
-              
-              
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10 bg-white shadow-2xl transition-transform duration-500 group-hover:scale-105">
-                <Image 
-                  src="/me.png" 
-                  alt="Hao Avatar" 
-                  fill 
-                  className="object-cover scale-110" 
+              <div className="absolute -inset-4 bg-amber-accent/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+              <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-cream-300 bg-cream-200 shadow-lg transition-transform duration-500 group-hover:scale-105">
+                <Image
+                  src="/me.png"
+                  alt="Hao Avatar"
+                  fill
+                  className="object-cover scale-110"
                 />
-                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] pointer-events-none"></div>
               </div>
             </div>
           </div>
+        </div>
 
+        {/* Bouncing scroll indicator */}
+        <div className="flex flex-col items-center gap-2 text-warm-muted animate-bounce pointer-events-none select-none">
+          <span className="text-[10px] font-sans font-bold uppercase tracking-[0.25em]">Scroll</span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </div>
-      
-      <footer className="w-full text-center py-6 text-white/30 text-xs font-mono relative z-10 border-t border-white/5">
-        <div className="w-24 h-0.5 bg-blue-500/50 mx-auto mb-4 rounded-full"></div>
+
+      {/* Contest Timeline section below Hero */}
+      <div id="contest" className="max-w-3xl mx-auto w-full px-6 pb-12 md:pb-16 relative z-10">
+        <section className="warm-card p-6 md:p-10 shadow-md">
+          <h2 className="text-xl font-serif font-bold mb-8 flex items-center gap-3 text-warm-text">
+            <span className="w-1 h-6 bg-gradient-to-b from-terracotta to-amber-accent rounded-full"></span>
+            Contest
+          </h2>
+
+          <ul className="space-y-8 border-l-2 border-cream-300 pl-6 ml-2 py-2">
+            {/* 經歷 1 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-amber-accent rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2025.Feb
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                115電機電子群-全國專題實作及創意競賽
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-warm-sub">複賽 專題組</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
+                  佳作
+                </span>
+              </div>
+            </li>
+
+            {/* 經歷 2 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-terracotta rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2025.Dec
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                114全國高級中等學校技藝競賽
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-warm-sub">機器人職種</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-terracotta/10 text-terracotta border border-terracotta/20">
+                  優勝五
+                </span>
+              </div>
+            </li>
+
+            {/* 經歷 3 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-amber-accent rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2025.Apr
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                第65屆 第一分區科學展覽會
+              </h3>
+              <div>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
+                  佳作
+                </span>
+              </div>
+            </li>
+
+            {/* 經歷 4 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-amber-accent rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2025.Mar
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                55屆 分區技能競賽
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-warm-sub">自主機器人職種</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
+                  佳作 (6th)
+                </span>
+              </div>
+            </li>
+
+            {/* 經歷 5 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-amber-accent rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2025.Feb
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                114電機電子群-全國專題實作及創意競賽
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-warm-sub">複賽 專題組</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
+                  佳作
+                </span>
+              </div>
+            </li>
+
+            {/* 經歷 6 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-terracotta rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2025.Feb
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                IEYI 世界青少年發明展台灣選拔賽
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-warm-sub">農糧技術類</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-terracotta/10 text-terracotta border border-terracotta/20">
+                  銀牌
+                </span>
+              </div>
+            </li>
+
+            {/* 經歷 7 */}
+            <li className="relative">
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-amber-accent rounded-full shadow-sm"></div>
+              <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
+                2024.Mar
+              </span>
+              <h3 className="font-medium text-warm-text text-base mb-1.5">
+                54屆 分區技能競賽
+              </h3>
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-warm-sub">機器人職種</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
+                  佳作 (8th)
+                </span>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      {/* Bouncing scroll indicator between Contest and Contact */}
+      <div className="flex flex-col items-center gap-2 text-warm-muted animate-bounce pointer-events-none select-none py-12">
+        <span className="text-[10px] font-sans font-bold uppercase tracking-[0.25em]">Scroll</span>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+
+      {/* Contact Section */}
+      <div id="contact" className="max-w-3xl mx-auto w-full px-6 pb-24 md:pb-32 relative z-10">
+        <section className="warm-card p-6 md:p-10 shadow-md text-center md:text-left">
+          <h2 className="text-xl font-serif font-bold mb-6 flex items-center justify-center md:justify-start gap-3 text-warm-text">
+            <span className="w-1 h-6 bg-gradient-to-b from-terracotta to-amber-accent rounded-full"></span>
+            Contact
+          </h2>
+          <p className="text-warm-sub text-sm leading-relaxed mb-6 font-light">
+            如果有任何合作提案、競賽交流或技術探討的機會，非常歡迎透過電子郵件與我聯絡。我會盡快回覆您！
+          </p>
+          <div className="flex justify-center md:justify-start">
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=haoweb67@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-6 py-3 bg-white border border-cream-300 rounded-full text-warm-text hover:bg-terracotta hover:text-white hover:border-terracotta hover:shadow-md transition-all duration-300 select-none"
+            >
+              <svg className="w-4 h-4 text-warm-sub group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span className="text-sm font-semibold tracking-wider">haoweb67@gmail.com</span>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <footer className="w-full text-center py-8 text-warm-muted text-xs relative z-10 border-t border-cream-300">
+        <div className="warm-divider mx-auto mb-4"></div>
         © 2026 Hao. All Rights Reserved.
       </footer>
     </main>

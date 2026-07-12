@@ -45,7 +45,7 @@ export const posts = [
     date: "2025.Feb",
     title: "2025IEYI青少年發明展-歷程與心得",
     description: "這篇文章分享我在準備設計魚菜共生的產品，數據統計...",
-    tags: ["Aquaponics", "tech", "Fish"],
+    tags: ["Aquaponics", "tech"],
     category: "Project",
     cover: "/2025ieyi.png",
     imageClass: "object-contain bg-[#0a0a0a]",
