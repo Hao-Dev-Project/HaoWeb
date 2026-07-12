@@ -168,7 +168,7 @@ export default async function BlogPost({
                         {/* Split paths */}
                         <div className="w-full max-w-lg flex flex-row items-stretch justify-between relative mt-2">
                           {/* Left branch: Yes */}
-                          <div className="flex-1 flex flex-col items-center border-r border-dashed border-cream-300 pr-4">
+                          <div className="flex-1 min-w-0 flex flex-col items-center border-r border-dashed border-cream-300 pr-4">
                             <div className="text-[10px] text-red-600 font-bold mb-3 tracking-wider">True</div>
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px] break-all">
                               LINX Write Port: Low
@@ -182,7 +182,7 @@ export default async function BlogPost({
                           </div>
                           
                           {/* Right branch: No */}
-                          <div className="flex-1 flex flex-col items-center pl-4">
+                          <div className="flex-1 min-w-0 flex flex-col items-center pl-4">
                             <div className="text-[10px] text-green-600 font-bold mb-3 tracking-wider">False</div>
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[180px] break-all">
                               執行 autoCorrectHeading.vi
