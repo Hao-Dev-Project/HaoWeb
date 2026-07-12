@@ -116,7 +116,7 @@ export default async function BlogPost({
                 if (lang === "diagram1") {
                   return (
                     <div className="w-full overflow-x-auto pb-4 my-8">
-                      <div className="flex flex-col items-center gap-4 text-xs font-semibold not-prose min-w-[480px] w-full select-none mx-auto">
+                      <div className="flex flex-col items-center gap-4 text-xs font-semibold not-prose min-w-[480px] w-full select-none mx-auto whitespace-normal">
                         {/* Start capsule */}
                         <div className="px-6 py-2 bg-white border border-cream-300 rounded-full text-warm-text shadow-sm tracking-wider text-center min-w-[120px]">
                           開始
@@ -202,7 +202,7 @@ export default async function BlogPost({
 
                 if (lang === "diagram2") {
                   return (
-                    <div className="my-8 flex flex-col items-center gap-4 text-xs font-semibold not-prose w-full select-none">
+                    <div className="my-8 flex flex-col items-center gap-4 text-xs font-semibold not-prose w-full select-none whitespace-normal">
                       {/* Start capsule */}
                       <div className="px-6 py-2 bg-white border border-cream-300 rounded-full text-warm-text shadow-sm tracking-wider text-center min-w-[180px]">
                         Shift Register 傳遞狀態
