@@ -5,49 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Custom typewriter component to prevent ghost characters and layout shifts
-function Typewriter({ onCycleComplete }: { onCycleComplete: () => void }) {
-  const words = ["Hao", "YunTech"];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+function Typewriter() {
+  const text = "Hao";
   const [currentText, setCurrentText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(300); // Start with a brief delay before typing
+  const [typingSpeed, setTypingSpeed] = useState(150);
 
   useEffect(() => {
-    const fullWord = words[currentWordIndex];
-    
-    const handleType = () => {
-      if (!isDeleting) {
-        // Typing
-        const nextText = fullWord.substring(0, currentText.length + 1);
-        setCurrentText(nextText);
-        setTypingSpeed(100); // Regular typing speed
-
-        if (nextText === fullWord) {
-          setTypingSpeed(1500); // Pause on complete word
-          setIsDeleting(true);
-        }
-      } else {
-        // Deleting
-        const nextText = fullWord.substring(0, currentText.length - 1);
-        setCurrentText(nextText);
-        setTypingSpeed(50); // Faster delete speed
-
-        if (nextText === "") {
-          setIsDeleting(false);
-          // If we finished deleting the last word, reset the entire component cycle
-          if (currentWordIndex === words.length - 1) {
-            onCycleComplete();
-          } else {
-            setCurrentWordIndex((prev) => (prev + 1) % words.length);
-            setTypingSpeed(300); // Brief pause before typing next word
-          }
-        }
-      }
-    };
-
-    const timer = setTimeout(handleType, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIndex, typingSpeed, onCycleComplete]);
+    if (currentText.length < text.length) {
+      const timer = setTimeout(() => {
+        setCurrentText(text.substring(0, currentText.length + 1));
+      }, typingSpeed);
+      return () => clearTimeout(timer);
+    }
+  }, [currentText, typingSpeed]);
 
   return (
     <span 
@@ -62,7 +32,6 @@ function Typewriter({ onCycleComplete }: { onCycleComplete: () => void }) {
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
-  const [cycleKey, setCycleKey] = useState(0);
 
   useEffect(() => {
     setIsMounted(true);
@@ -87,14 +56,7 @@ export default function Home() {
           {/* Text Content */}
           <div className="flex-1 space-y-6 text-center md:text-left">
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-black tracking-tight text-warm-text mb-2 py-1 min-h-[1.1em] flex items-center justify-center md:justify-start">
-              {isMounted ? (
-                <Typewriter 
-                  key={cycleKey} 
-                  onCycleComplete={() => setCycleKey((prev) => prev + 1)} 
-                />
-              ) : (
-                "Hao"
-              )}
+              {isMounted ? <Typewriter /> : "Hao"}
             </h1>
 
 
