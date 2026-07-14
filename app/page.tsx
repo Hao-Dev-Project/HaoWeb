@@ -8,16 +8,23 @@ import Image from "next/image";
 function Typewriter() {
   const text = "Hao";
   const [currentText, setCurrentText] = useState("");
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    if (currentText.length < text.length) {
+    const startTimer = setTimeout(() => {
+      setStarted(true);
+    }, 500); // 500ms delay before starting to type
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (started && currentText.length < text.length) {
       const timer = setTimeout(() => {
         setCurrentText(text.substring(0, currentText.length + 1));
-      }, typingSpeed);
+      }, 250); // Slower, more visible typing speed (250ms per letter)
       return () => clearTimeout(timer);
     }
-  }, [currentText, typingSpeed]);
+  }, [currentText, started]);
 
   return (
     <span 
