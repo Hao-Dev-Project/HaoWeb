@@ -5,26 +5,40 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Custom typewriter component to prevent ghost characters and layout shifts
-function Typewriter() {
+function Typewriter({ onCycleComplete }: { onCycleComplete: () => void }) {
   const text = "Hao";
   const [currentText, setCurrentText] = useState("");
-  const [started, setStarted] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
 
   useEffect(() => {
-    const startTimer = setTimeout(() => {
-      setStarted(true);
-    }, 500); // 500ms delay before starting to type
-    return () => clearTimeout(startTimer);
-  }, []);
+    const handleType = () => {
+      if (!isDeleting) {
+        // Typing
+        const nextText = text.substring(0, currentText.length + 1);
+        setCurrentText(nextText);
+        setTypingSpeed(150); // Regular typing speed
 
-  useEffect(() => {
-    if (started && currentText.length < text.length) {
-      const timer = setTimeout(() => {
-        setCurrentText(text.substring(0, currentText.length + 1));
-      }, 250); // Slower, more visible typing speed (250ms per letter)
-      return () => clearTimeout(timer);
-    }
-  }, [currentText, started]);
+        if (nextText === text) {
+          setTypingSpeed(1500); // Pause on complete word
+          setIsDeleting(true);
+        }
+      } else {
+        // Deleting
+        const nextText = text.substring(0, currentText.length - 1);
+        setCurrentText(nextText);
+        setTypingSpeed(75); // Faster delete speed
+
+        if (nextText === "") {
+          setIsDeleting(false);
+          onCycleComplete(); // Trigger cycle complete to reset the entire component cycle
+        }
+      }
+    };
+
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, typingSpeed, onCycleComplete]);
 
   return (
     <span 
@@ -39,6 +53,7 @@ function Typewriter() {
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const [cycleKey, setCycleKey] = useState(0);
 
   useEffect(() => {
     setIsMounted(true);
@@ -63,7 +78,14 @@ export default function Home() {
           {/* Text Content */}
           <div className="flex-1 space-y-6 text-center md:text-left">
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-black tracking-tight text-warm-text mb-2 py-1 min-h-[1.1em] flex items-center justify-center md:justify-start">
-              {isMounted ? <Typewriter /> : "Hao"}
+              {isMounted ? (
+                <Typewriter 
+                  key={cycleKey} 
+                  onCycleComplete={() => setCycleKey((prev) => prev + 1)} 
+                />
+              ) : (
+                "Hao"
+              )}
             </h1>
 
 
