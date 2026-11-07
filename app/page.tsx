@@ -132,10 +132,10 @@ export default function Home() {
                 2026.Feb
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                115電機電子群-全國專題實作及創意競賽
+                115 全國專題實作及創意競賽（電機電子群）
               </h3>
               <div className="flex items-center gap-3">
-                <span className="text-sm text-warm-sub">複賽 專題組</span>
+                <span className="text-sm text-warm-sub">複賽・專題組</span>
                 <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
                   佳作
                 </span>
@@ -149,7 +149,7 @@ export default function Home() {
                 2025.Dec
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                114全國高級中等學校技藝競賽
+                114 全國高級中等學校工業類技藝競賽
               </h3>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-warm-sub">機器人職種</span>
@@ -166,7 +166,7 @@ export default function Home() {
                 2025.Apr
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                第65屆 第一分區科學展覽會
+                第 65 屆第一分區科學展覽會
               </h3>
               <div>
                 <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
@@ -182,12 +182,12 @@ export default function Home() {
                 2025.Mar
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                55屆 分區技能競賽
+                第 55 屆分區技能競賽
               </h3>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-warm-sub">自主機器人職種</span>
                 <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
-                  佳作 (6th)
+                  佳作（第六名）
                 </span>
               </div>
             </li>
@@ -199,10 +199,10 @@ export default function Home() {
                 2025.Feb
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                114電機電子群-全國專題實作及創意競賽
+                114 全國專題實作及創意競賽（電機電子群）
               </h3>
               <div className="flex items-center gap-3">
-                <span className="text-sm text-warm-sub">複賽 專題組</span>
+                <span className="text-sm text-warm-sub">複賽・專題組</span>
                 <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
                   佳作
                 </span>
@@ -216,7 +216,7 @@ export default function Home() {
                 2025.Feb
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                IEYI 世界青少年發明展台灣選拔賽
+                IEYI 世界青少年發明展臺灣選拔賽
               </h3>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-warm-sub">農糧技術類</span>
@@ -233,12 +233,12 @@ export default function Home() {
                 2024.Mar
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
-                54屆 分區技能競賽
+                第 54 屆分區技能競賽
               </h3>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-warm-sub">機器人職種</span>
                 <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-accent/10 text-amber-dark border border-amber-accent/20">
-                  佳作 (8th)
+                  佳作（第八名）
                 </span>
               </div>
             </li>
@@ -262,7 +262,7 @@ export default function Home() {
             Contact
           </h2>
           <p className="text-warm-sub text-sm leading-relaxed mb-6 font-light">
-            如果有任何合作提案、競賽交流或技術探討的機會，非常歡迎透過電子郵件與我聯絡。我會盡快回覆您！
+            想交流比賽經驗、討論技術，或有合作機會，都歡迎寫信給我，我會盡快回覆。
           </p>
           <div className="flex justify-center md:justify-start">
             <a

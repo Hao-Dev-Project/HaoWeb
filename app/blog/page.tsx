@@ -60,7 +60,7 @@ export default function Blog() {
           </h1>
           <div className="warm-divider mb-4"></div>
           <p className="text-warm-sub font-light">
-            記錄技術、比賽心得與生活中的點滴。
+            記錄我的比賽、專題和技術筆記。
           </p>
         </header>
 
