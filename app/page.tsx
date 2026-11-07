@@ -129,7 +129,7 @@ export default function Home() {
             <li className="relative">
               <div className="absolute -left-[29px] top-1.5 w-3 h-3 bg-amber-accent rounded-full shadow-sm"></div>
               <span className="text-xs text-warm-muted tracking-wider mb-1.5 block">
-                2025.Feb
+                2026.Feb
               </span>
               <h3 className="font-medium text-warm-text text-base mb-1.5">
                 115電機電子群-全國專題實作及創意競賽
