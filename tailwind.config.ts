@@ -19,20 +19,22 @@ const config: Config = {
         warm: {
           text: "#2D2A26",
           sub: "#6B6560",
-          muted: "#9C9590",
+          muted: "#736C66",
           border: "#E8E2DA",
         },
         amber: {
           accent: "#C8956C",
           dark: "#A87B56",
+          text: "#8C5F3C",
         },
         terracotta: {
           DEFAULT: "#B5675A",
           light: "#D4897C",
+          text: "#9A4F43",
         },
       },
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
+        serif: ["Playfair Display", "Noto Serif TC", "Georgia", "serif"],
         sans: ["Noto Sans TC", "system-ui", "sans-serif"],
       },
       animation: {

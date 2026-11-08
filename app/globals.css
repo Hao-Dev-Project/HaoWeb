@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,10 +8,10 @@
   --color-cream: #FBF8F3;
   --color-text: #2D2A26;
   --color-sub: #6B6560;
-  --color-muted: #9C9590;
+  --color-muted: #736C66;
   --color-border: #E8E2DA;
   --color-amber: #C8956C;
-  --color-terracotta: #B5675A;
+  --color-terracotta: #9A4F43;
   --color-card: rgba(255, 255, 255, 0.7);
 }
 
@@ -79,7 +79,7 @@ main {
   transition: all 0.4s ease;
 }
 
-.warm-card:hover {
+.warm-card-hover:hover {
   box-shadow: 0 8px 32px rgba(45, 42, 38, 0.1);
   transform: translateY(-2px);
 }
@@ -105,7 +105,7 @@ main {
 }
 
 .prose-warm h1 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', 'Noto Serif TC', Georgia, serif;
   font-size: 2.15rem;
   font-weight: 700; /* Regular bold instead of ultra-bold 900 */
   margin-top: 2.75rem;
@@ -115,7 +115,7 @@ main {
 }
 
 .prose-warm h2 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', 'Noto Serif TC', Georgia, serif;
   font-size: 1.65rem;
   font-weight: 700; /* Regular bold instead of ultra-bold 800 */
   margin-top: 2.25rem;
@@ -130,6 +130,14 @@ main {
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
   color: var(--color-text);
+}
+
+.prose-warm h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-sub);
 }
 
 .prose-warm blockquote {

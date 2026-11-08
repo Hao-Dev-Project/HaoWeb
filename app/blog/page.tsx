@@ -2,6 +2,7 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import postsData from "@/app/data/posts.json";
 
 export default function Blog() {
@@ -40,7 +41,7 @@ export default function Blog() {
   };
 
   return (
-    <main key={refreshKey} className="min-h-screen bg-cream-100 text-warm-text font-sans relative overflow-hidden flex flex-col">
+    <main key={refreshKey} className="min-h-screen bg-cream-100 text-warm-text font-sans relative overflow-x-clip flex flex-col">
       {/* Subtle warm decorative blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-[10%] -left-[10%] w-[35rem] h-[35rem] bg-amber-accent/8 rounded-full filter blur-[100px]"></div>
@@ -72,7 +73,7 @@ export default function Blog() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-1.5 text-xs font-semibold tracking-wider rounded-full border transition-all duration-300 ${
                 selectedCategory === cat
-                  ? "bg-amber-accent border-amber-accent text-white shadow-sm"
+                  ? "bg-amber-text border-amber-text text-white shadow-sm"
                   : "bg-white/60 border-cream-300 text-warm-sub hover:bg-white hover:text-warm-text"
               }`}
             >
@@ -89,7 +90,7 @@ export default function Blog() {
 
             return (
               <Link href={`/blog/${originalIndex}`} key={originalIndex} className="group block h-full">
-                <article className="warm-card overflow-hidden flex flex-col h-full transform transition-all duration-300 hover:-translate-y-1">
+                <article className="warm-card warm-card-hover overflow-hidden flex flex-col h-full">
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-cream-200">
                     <img
                       src={post.cover}
@@ -101,7 +102,7 @@ export default function Blog() {
                     </span>
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <h2 className="text-xl font-serif font-bold text-warm-text mb-2 line-clamp-2 group-hover:text-amber-accent transition-colors duration-300">
+                    <h2 className="text-xl font-serif font-bold text-warm-text mb-2 line-clamp-2 group-hover:text-amber-text transition-colors duration-300">
                       {post.title}
                     </h2>
                     <p className="text-warm-sub text-sm mb-4 line-clamp-2 font-light leading-relaxed">
@@ -112,7 +113,7 @@ export default function Blog() {
                         {post.tags.map((tag, i) => (
                           <span
                             key={i}
-                            className="text-xs font-medium text-amber-accent group-hover:text-terracotta transition-colors"
+                            className="text-xs font-medium text-amber-text group-hover:text-terracotta-text transition-colors"
                           >
                             #{tag}
                           </span>
@@ -131,10 +132,7 @@ export default function Blog() {
         </div>
       </div>
 
-      <footer className="w-full text-center py-8 text-warm-muted text-xs border-t border-cream-300">
-        <div className="warm-divider mx-auto mb-4"></div>
-        © 2026 Hao. All Rights Reserved.
-      </footer>
+      <Footer />
     </main>
   );
 }

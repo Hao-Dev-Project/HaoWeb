@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import postsData from "@/app/data/posts.json";
 import ProgressBar from "@/components/ProgressBar";
+import Footer from "@/components/Footer";
 
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -47,7 +48,7 @@ export default async function BlogPost({
   const readingTime = Math.ceil((post.content?.length || 0) / 400);
 
   return (
-    <main className="min-h-screen bg-cream-100 text-warm-text font-sans relative overflow-hidden flex flex-col animate-none">
+    <main className="min-h-screen bg-cream-100 text-warm-text font-sans relative overflow-x-clip flex flex-col animate-none">
       <ProgressBar />
       {/* Subtle warm decorative blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -74,12 +75,12 @@ export default async function BlogPost({
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Blog
+          回到文章列表
         </Link>
 
         <header className="mb-8">
           <div className="flex items-center gap-4 mb-4">
-            <span className="px-3 py-1 bg-amber-accent/10 border border-amber-accent/20 text-amber-dark rounded-full text-xs font-semibold uppercase tracking-widest">
+            <span className="px-3 py-1 bg-amber-accent/10 border border-amber-accent/20 text-amber-text rounded-full text-xs font-semibold uppercase tracking-widest">
               {post.category || "Blog"}
             </span>
             <time className="text-sm text-warm-muted">{post.date} • {readingTime} 分鐘閱讀</time>
@@ -89,7 +90,7 @@ export default async function BlogPost({
           </h1>
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.map((tag: string, idx: number) => (
-              <span key={idx} className="text-sm text-amber-accent font-medium">
+              <span key={idx} className="text-sm text-amber-text font-medium">
                 #{tag}
               </span>
             ))}
@@ -105,7 +106,7 @@ export default async function BlogPost({
           />
         </div>
 
-        <div className="prose prose-lg max-w-none prose-warm prose-headings:font-serif prose-a:text-terracotta prose-a:no-underline hover:prose-a:underline prose-pre:bg-cream-50 prose-pre:border prose-pre:border-cream-300 prose-pre:rounded-xl prose-blockquote:border-l-amber-accent">
+        <div className="prose prose-lg max-w-none prose-warm prose-headings:font-serif prose-a:text-terracotta-text prose-a:no-underline hover:prose-a:underline prose-pre:bg-cream-50 prose-pre:border prose-pre:border-cream-300 prose-pre:rounded-xl prose-blockquote:border-l-amber-accent">
           <ReactMarkdown
             rehypePlugins={[rehypeHighlight]}
             components={{
@@ -123,7 +124,7 @@ export default async function BlogPost({
                         </div>
                         
                         {/* Arrow */}
-                        <svg className="w-5 h-5 text-amber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-amber-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                         </svg>
                         
@@ -133,7 +134,7 @@ export default async function BlogPost({
                         </div>
                         
                         {/* Arrow */}
-                        <svg className="w-5 h-5 text-amber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-amber-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                         </svg>
                         
@@ -143,7 +144,7 @@ export default async function BlogPost({
                         </div>
                         
                         {/* Arrow */}
-                        <svg className="w-5 h-5 text-amber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-amber-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                         </svg>
                         
@@ -153,7 +154,7 @@ export default async function BlogPost({
                         </div>
                         
                         {/* Arrow */}
-                        <svg className="w-5 h-5 text-amber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-amber-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                         </svg>
                         
@@ -173,7 +174,7 @@ export default async function BlogPost({
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[240px] break-all">
                               LINX Write Port: Low
                             </div>
-                            <svg className="w-5 h-5 text-amber-accent my-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-amber-text my-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                             </svg>
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[240px] break-all">
@@ -187,7 +188,7 @@ export default async function BlogPost({
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[240px] break-all">
                               執行 autoCorrectHeading.vi
                             </div>
-                            <svg className="w-5 h-5 text-amber-accent my-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-amber-text my-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                             </svg>
                             <div className="p-3 bg-white border border-cream-300 rounded-md text-warm-text shadow-sm text-center w-full max-w-[240px] break-all">
@@ -209,7 +210,7 @@ export default async function BlogPost({
                       </div>
                       
                       {/* Arrow */}
-                      <svg className="w-5 h-5 text-amber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-amber-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v14m0 0l-4-4m4 4l4-4" />
                       </svg>
                       
@@ -225,21 +226,21 @@ export default async function BlogPost({
                       <div className="w-full max-w-3xl grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
                         {/* Branch 1 */}
                         <div className="flex flex-col items-center p-4 bg-white border border-cream-300 rounded-md shadow-sm">
-                          <div className="text-[10px] text-amber-dark font-bold mb-3 tracking-wider">STATE_INIT</div>
+                          <div className="text-[10px] text-amber-text font-bold mb-3 tracking-wider">STATE_INIT</div>
                           <div className="w-full border-t border-cream-200 pt-3 text-[11px] text-warm-sub space-y-2 leading-relaxed text-center">
                             <div>呼叫感測器初始化 VI</div>
                             <div>清除馬達暫存器脈衝</div>
-                            <div className="text-amber-accent font-bold pt-1">➔ 轉移: STATE_TRACK_LINE</div>
+                            <div className="text-amber-text font-bold pt-1">➔ 轉移: STATE_TRACK_LINE</div>
                           </div>
                         </div>
                         
                         {/* Branch 2 */}
                         <div className="flex flex-col items-center p-4 bg-white border border-cream-300 rounded-md shadow-sm">
-                          <div className="text-[10px] text-terracotta font-bold mb-3 tracking-wider">STATE_TRACK_LINE</div>
+                          <div className="text-[10px] text-terracotta-text font-bold mb-3 tracking-wider">STATE_TRACK_LINE</div>
                           <div className="w-full border-t border-cream-200 pt-3 text-[11px] text-warm-sub space-y-2 leading-relaxed text-center">
                             <div>讀取 7 路灰階感測器</div>
                             <div>Formula Node 計算 PID</div>
-                            <div className="text-amber-accent font-bold pt-1">➔ 轉移: 判斷前方障礙物</div>
+                            <div className="text-amber-text font-bold pt-1">➔ 轉移: 判斷前方障礙物</div>
                           </div>
                         </div>
                         
@@ -249,7 +250,7 @@ export default async function BlogPost({
                           <div className="w-full border-t border-cream-200 pt-3 text-[11px] text-warm-sub space-y-2 leading-relaxed text-center">
                             <div>輸出氣壓缸數位訊號</div>
                             <div>驅動電磁閥閉合夾爪</div>
-                            <div className="text-amber-accent font-bold pt-1">➔ 轉移: STATE_DOCK_BASE</div>
+                            <div className="text-amber-text font-bold pt-1">➔ 轉移: STATE_DOCK_BASE</div>
                           </div>
                         </div>
                       </div>
@@ -282,9 +283,9 @@ export default async function BlogPost({
                   className="flex-1 p-4 bg-white/60 border border-cream-300 rounded-xl hover:bg-white transition-all duration-300 text-left group"
                 >
                   <div className="text-xs text-warm-sub mb-1 flex items-center gap-1">
-                    <span>←</span> Previous
+                    <span>←</span> 上一篇
                   </div>
-                  <div className="text-sm font-serif font-bold text-warm-text group-hover:text-amber-accent transition-colors line-clamp-1">
+                  <div className="text-sm font-serif font-bold text-warm-text group-hover:text-amber-text transition-colors line-clamp-1">
                     {prevPost.title}
                   </div>
                 </Link>
@@ -298,9 +299,9 @@ export default async function BlogPost({
                   className="flex-1 p-4 bg-white/60 border border-cream-300 rounded-xl hover:bg-white transition-all duration-300 text-right group"
                 >
                   <div className="text-xs text-warm-sub mb-1 flex items-center justify-end gap-1">
-                    Next <span>→</span>
+                    下一篇 <span>→</span>
                   </div>
-                  <div className="text-sm font-serif font-bold text-warm-text group-hover:text-amber-accent transition-colors line-clamp-1">
+                  <div className="text-sm font-serif font-bold text-warm-text group-hover:text-amber-text transition-colors line-clamp-1">
                     {nextPost.title}
                   </div>
                 </Link>
@@ -312,10 +313,7 @@ export default async function BlogPost({
         })()}
       </article>
 
-      <footer className="w-full text-center py-8 text-warm-muted text-xs border-t border-cream-300">
-        <div className="warm-divider mx-auto mb-4"></div>
-        © 2026 Hao. All Rights Reserved.
-      </footer>
+      <Footer />
     </main>
   );
 }
