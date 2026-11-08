@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const sections = [
   { id: "projects", label: "作品" },
-  { id: "contest", label: "競賽" },
+  { id: "contest", label: "經歷" },
 ];
 
 export default function Navbar() {

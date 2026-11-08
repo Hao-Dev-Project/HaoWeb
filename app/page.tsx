@@ -11,16 +11,10 @@ function postHref(cover: string) {
   return idx >= 0 ? `/blog/${idx}` : "/blog";
 }
 
-const stats = [
-  { value: "7", label: "項競賽獲獎" },
-  { value: "2", label: "次全國專題佳作" },
-  { value: "1", label: "面 IEYI 銀牌" },
-];
-
 const projects = [
   {
     title: "智慧三角警示立牌",
-    award: "第 65 屆科展佳作 → 115 全國專題佳作",
+    award: "第 65 屆科展、115 全國專題",
     description:
       "駕駛不用下車，按下遙控器，立牌就會自己走到車後定位並避開障礙物。第二代加上即時影像回傳，在車內用手機就能看到車後路況。",
     tags: ["LabVIEW", "Raspberry Pi 4", "Android Studio", "FFmpeg"],
@@ -50,17 +44,16 @@ type Contest = {
   name: string;
   detail?: string;
   award: string;
-  highlight?: boolean;
   cover: string;
 };
 
 const contests: Contest[] = [
   { date: "2026.Feb", name: "115 全國專題實作及創意競賽（電機電子群）", detail: "複賽・專題組", award: "佳作", cover: "/115.jpg" },
-  { date: "2025.Dec", name: "114 全國高級中等學校工業類技藝競賽", detail: "機器人職種", award: "優勝五", highlight: true, cover: "/114.jpg" },
+  { date: "2025.Dec", name: "114 全國高級中等學校工業類技藝競賽", detail: "機器人職種", award: "優勝五", cover: "/114.jpg" },
   { date: "2025.Apr", name: "第 65 屆第一分區科學展覽會", award: "佳作", cover: "/65.png" },
   { date: "2025.Mar", name: "第 55 屆分區技能競賽", detail: "自主機器人職種", award: "佳作（第六名）", cover: "/55.jpeg" },
   { date: "2025.Feb", name: "114 全國專題實作及創意競賽（電機電子群）", detail: "複賽・專題組", award: "佳作", cover: "/114mr.jpg" },
-  { date: "2025.Feb", name: "IEYI 世界青少年發明展臺灣選拔賽", detail: "農糧技術類", award: "銀牌", highlight: true, cover: "/2025ieyi.png" },
+  { date: "2025.Feb", name: "IEYI 世界青少年發明展臺灣選拔賽", detail: "農糧技術類", award: "銀牌", cover: "/2025ieyi.png" },
   { date: "2024.Mar", name: "第 54 屆分區技能競賽", detail: "機器人職種", award: "佳作（第八名）", cover: "/54.png" },
 ];
 
@@ -91,14 +84,14 @@ export default function Home() {
 
         <div className="max-w-[60rem] w-full flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16 my-auto">
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tight text-warm-text leading-none min-h-[1.1em] flex items-center justify-center md:justify-start">
+            <h1 className="text-6xl md:text-7xl font-serif font-black tracking-tight text-warm-text leading-none min-h-[1.1em] flex items-center justify-center md:justify-start">
               <Typewriter text="Hao" />
             </h1>
             <p className="mt-5 text-lg md:text-xl font-serif font-medium text-warm-text">
               機器人・邊緣運算・機電整合
             </p>
             <p className="mt-3 text-warm-sub leading-relaxed max-w-md mx-auto md:mx-0">
-              這裡記錄我做過的機器人、專題作品和比賽經驗。
+              喜歡動手做機器人，這裡記錄我做過的專題、參加過的比賽，以及過程中學到的東西。
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
@@ -116,15 +109,6 @@ export default function Home() {
               </Link>
             </div>
 
-            <dl className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center md:text-left">
-                  <dt className="sr-only">{s.label}</dt>
-                  <dd className="text-3xl font-serif font-bold text-terracotta-text">{s.value}</dd>
-                  <dd className="text-xs text-warm-sub mt-1">{s.label}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
           <div className="flex-1 flex justify-center md:justify-end">
@@ -147,7 +131,7 @@ export default function Home() {
 
       {/* Projects */}
       <section id="projects" className="max-w-5xl mx-auto w-full px-6 md:px-8 py-12 md:py-16 relative z-10 scroll-mt-20">
-        <SectionTitle en="Projects" zh="精選作品" />
+        <SectionTitle en="Projects" zh="作品" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((p, i) => (
@@ -172,11 +156,11 @@ export default function Home() {
                 />
               </div>
               <div className={`p-6 md:p-8 flex flex-col ${i === 0 ? "md:w-2/5 md:justify-center" : "flex-1"}`}>
-                <p className="text-xs font-semibold text-terracotta-text mb-2">{p.award}</p>
                 <h3 className={`font-serif font-bold text-warm-text mb-3 group-hover:text-amber-text transition-colors ${i === 0 ? "text-2xl md:text-3xl" : "text-xl"}`}>
                   {p.title}
                 </h3>
-                <p className="text-sm text-warm-sub leading-relaxed mb-5">{p.description}</p>
+                <p className="text-sm text-warm-sub leading-relaxed mb-3">{p.description}</p>
+                <p className="text-xs text-warm-muted mb-5">{p.award}</p>
                 <div className="mt-auto flex flex-wrap gap-2">
                   {p.tags.map((t) => (
                     <span key={t} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-cream-200 text-warm-sub border border-cream-300">
@@ -185,7 +169,7 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="mt-5 text-sm font-semibold text-amber-text group-hover:text-terracotta-text transition-colors">
-                  閱讀開發紀錄 →
+                  看開發過程 →
                 </span>
               </div>
             </Link>
@@ -195,7 +179,7 @@ export default function Home() {
 
       {/* Contest timeline */}
       <section id="contest" className="max-w-5xl mx-auto w-full px-6 md:px-8 py-12 md:py-16 relative z-10 scroll-mt-20">
-        <SectionTitle en="Contest" zh="競賽紀錄" />
+        <SectionTitle en="Contest" zh="比賽經歷" />
 
         <div className="warm-card p-4 md:p-6">
           <ul className="divide-y divide-cream-300">
@@ -212,11 +196,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-3 mt-2 sm:mt-0">
                     <span
-                      className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
-                        c.highlight
-                          ? "bg-terracotta/10 text-terracotta-text border-terracotta/20"
-                          : "bg-amber-accent/10 text-amber-text border-amber-accent/20"
-                      }`}
+                      className="px-2.5 py-0.5 rounded-full text-xs font-medium border bg-cream-200 text-warm-sub border-cream-300"
                     >
                       {c.award}
                     </span>
