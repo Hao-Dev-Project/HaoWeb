@@ -13,7 +13,7 @@
 - [Next.js](https://nextjs.org/)（App Router）＋ React ＋ TypeScript
 - Tailwind CSS
 - react-markdown ＋ highlight.js（文章內容與程式碼高亮）
-- 部署在 [Vercel](https://vercel.com/)，推送到 `main` 分支會自動更新網站
+- 部署在 [Vercel](https://vercel.com/)
 
 ## 聯絡
 
