@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import postsData from "@/app/data/posts.json";
 import ProgressBar from "@/components/ProgressBar";
 import Footer from "@/components/Footer";
+import ZoomableImage from "@/components/ZoomableImage";
 
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -99,7 +100,7 @@ export default async function BlogPost({
         </header>
 
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-cream-200 border border-cream-300 mb-8 shadow-md">
-          <img
+          <ZoomableImage
             src={post.cover}
             alt={post.title}
             className="w-full h-full object-cover"
@@ -110,6 +111,14 @@ export default async function BlogPost({
           <ReactMarkdown
             rehypePlugins={[rehypeHighlight]}
             components={{
+              img({ src, alt }: any) {
+                if (typeof src !== "string") return null;
+                return (
+                  <span className="not-prose block my-8 overflow-hidden rounded-xl border border-cream-300 bg-cream-200">
+                    <ZoomableImage src={src} alt={alt || ""} className="w-full h-auto" />
+                  </span>
+                );
+              },
               code({ node, className, children, ...props }: any) {
                 const match = /language-(\w+)/.exec(className || "");
                 const lang = match ? match[1] : "";
