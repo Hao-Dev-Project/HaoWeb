@@ -34,35 +34,6 @@ components/
 public/                   圖片
 ```
 
-## 本機開發
-
-```bash
-npm install
-npm run dev
-```
-
-開啟 http://localhost:3000 即可預覽。
-
-## 新增文章
-
-1. 把封面圖片放進 `public/`
-2. 在 `app/data/posts.json` 最後面新增一筆資料：
-
-```json
-{
-    "title": "文章標題",
-    "date": "2026.Mar",
-    "author": "Hao",
-    "category": "專題競賽",
-    "description": "顯示在文章卡片上的簡短介紹",
-    "tags": ["Robot", "LabVIEW"],
-    "cover": "/封面檔名.jpg",
-    "content": "# 標題\n\n內文（Markdown 格式）"
-}
-```
-
-3. 如果要出現在首頁，再到 `app/page.tsx` 的 `projects` 或 `contests` 加上對應項目
-
 ## 聯絡
 
 haoweb67@gmail.com
