@@ -15,7 +15,7 @@
 | 框架 | Next.js 16（App Router）、React 19 |
 | 語言 | TypeScript |
 | 樣式 | Tailwind CSS 3、PostCSS |
-| 內容渲染 | react-markdown、rehype-highlight（highlight.js 語法高亮） |
+| 內容渲染 | react-markdown、rehype-highlight |
 | 圖片最佳化 | next/image |
 | 程式碼品質 | ESLint |
 | 部署 | Vercel |
