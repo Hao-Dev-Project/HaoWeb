@@ -26,9 +26,17 @@ export async function generateMetadata({
     };
   }
 
+  const title = `${post.title} — Hao 個人網頁`;
+  const description = post.description || "Hao 的比賽與專題筆記。";
   return {
-    title: `${post.title} — Hao 個人網頁`,
-    description: post.description || "Hao 的技術與比賽學習筆記。",
+    title,
+    description,
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      images: post.cover ? [{ url: post.cover, alt: post.title }] : undefined,
+    },
   };
 }
 

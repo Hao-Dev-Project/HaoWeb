@@ -52,13 +52,8 @@ export default function Blog() {
 
       <div className="flex-1 max-w-5xl mx-auto w-full px-6 py-12 md:py-20 relative z-10">
         <header className="mb-12">
-          <h1 className="text-5xl md:text-6xl font-serif font-black mb-4 tracking-tight text-warm-text">
-            Latest{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-accent to-terracotta">
-              Notes
-            </span>
-            .
-          </h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-text mb-2">Notes</p>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-warm-text">文章</h1>
           <div className="warm-divider mb-4"></div>
           <p className="text-warm-sub font-light">
             記錄我的比賽、專題和技術筆記。
