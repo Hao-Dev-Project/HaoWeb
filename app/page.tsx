@@ -87,10 +87,7 @@ export default function Home() {
             <h1 className="text-6xl md:text-7xl font-serif font-black tracking-tight text-warm-text leading-none min-h-[1.1em] flex items-center justify-center md:justify-start">
               <Typewriter text="Hao" />
             </h1>
-            <p className="mt-5 text-lg md:text-xl font-serif font-medium text-warm-text">
-              正在學習機器人與機電整合
-            </p>
-            <p className="mt-3 text-warm-sub leading-relaxed max-w-md mx-auto md:mx-0">
+            <p className="mt-5 text-warm-sub leading-relaxed max-w-md mx-auto md:mx-0">
               這裡記錄我做過的專題、參加過的比賽，以及過程中學到的東西。
             </p>
 
