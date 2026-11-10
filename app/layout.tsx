@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Hao 個人網頁",
-  description: "Hao 的個人作品集與技術部落格。熱愛機器人、邊緣運算與機電整合開發。",
+  description: "Hao 的個人網站，記錄機器人專題、比賽經歷和學習筆記。",
 };
 
 export default function RootLayout({

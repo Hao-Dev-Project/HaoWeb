@@ -88,10 +88,10 @@ export default function Home() {
               <Typewriter text="Hao" />
             </h1>
             <p className="mt-5 text-lg md:text-xl font-serif font-medium text-warm-text">
-              機器人・邊緣運算・機電整合
+              正在學習機器人與機電整合
             </p>
             <p className="mt-3 text-warm-sub leading-relaxed max-w-md mx-auto md:mx-0">
-              喜歡動手做機器人，這裡記錄我做過的專題、參加過的比賽，以及過程中學到的東西。
+              這裡記錄我做過的專題、參加過的比賽，以及過程中學到的東西。
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
