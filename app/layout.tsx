@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     siteName: "Hao 個人網頁",
     title: "Hao 個人網頁",
     description,
-    images: [{ url: "/115.jpg", width: 1600, height: 900, alt: "智慧三角警示立牌" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Hao 的 Q 版頭貼" }],
   },
   twitter: { card: "summary_large_image" },
 };
