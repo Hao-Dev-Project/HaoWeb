@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "文章 — Hao 個人網頁",
+  title: "文章｜haoge.dev",
+  alternates: { canonical: "/blog" },
   description: "Hao 的比賽、專題和技術筆記。",
 };
 

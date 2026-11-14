@@ -22,15 +22,16 @@ export async function generateMetadata({
   
   if (!post) {
     return {
-      title: "找不到文章 — Hao 個人網頁",
+      title: "找不到文章｜haoge.dev",
     };
   }
 
-  const title = `${post.title} — Hao 個人網頁`;
+  const title = `${post.title}｜haoge.dev`;
   const description = post.description || "Hao 的比賽與專題筆記。";
   return {
     title,
     description,
+    alternates: { canonical: `/blog/${postId}` },
     openGraph: {
       type: "article",
       title,
